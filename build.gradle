@@ -1,0 +1,41 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.8.10'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.8.10'
+
+    id 'net.mamoe.mirai-console' version '2.15.0'
+}
+
+group = 'org.abstruck'
+version = '0.1.0'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.aliyun.com/repository/public' }
+}
+
+mirai {
+    jvmTarget JavaVersion.VERSION_17
+}
+
+dependencies {
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    compileOnly 'org.jsoup:jsoup:1.16.1'
+
+    testImplementation 'junit:junit:4.13.2'
+}
+
+
+
+//jar.from {
+//
+//    configurations.compileClasspath.findAll {
+//        it.name.contains('spring')
+//    }.collect {
+//        zipTree(it)
+//    }
+//}
+//
+//tasks.withType(Jar){
+//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+//}
